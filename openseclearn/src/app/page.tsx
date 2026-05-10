@@ -10,16 +10,19 @@ export default function Home() {
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full opacity-10" style={{ background: 'radial-gradient(circle, #00ff88, transparent)', filter: 'blur(80px)' }} />
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full opacity-8" style={{ background: 'radial-gradient(circle, #00d4ff, transparent)', filter: 'blur(80px)' }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-5" style={{ background: 'radial-gradient(circle, #9d00ff, transparent)', filter: 'blur(100px)' }} />
           {/* Grid pattern */}
           <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            {/* Tag */}
+            {/* Enterprise Tag */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-8 border border-border-dim" style={{ background: 'rgba(0, 255, 136, 0.05)' }}>
               <span className="w-2 h-2 rounded-full bg-cyber-green animate-pulse-slow"></span>
-              <span className="text-text-secondary">100% Free &middot; Open Source &middot; Community-Driven</span>
+              <span className="text-text-secondary">Enterprise Platform</span>
+              <span className="text-text-muted">·</span>
+              <span className="text-text-secondary">100% Free &middot; Open Source</span>
             </div>
 
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.1] mb-6">
@@ -33,11 +36,11 @@ export default function Home() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-              <Link href="/roadmap" className="btn-primary text-base px-8 py-3.5">
-                Start Learning →
+              <Link href="/auth/signup" className="btn-primary text-base px-8 py-3.5">
+                Get Started Free →
               </Link>
-              <Link href="/dashboard" className="btn-secondary text-base px-8 py-3.5">
-                View Dashboard
+              <Link href="/roadmap" className="btn-secondary text-base px-8 py-3.5">
+                View Roadmap
               </Link>
             </div>
 
@@ -47,7 +50,7 @@ export default function Home() {
                 <div className="terminal-dot" style={{ background: '#ff5f57' }}></div>
                 <div className="terminal-dot" style={{ background: '#ffbd2e' }}></div>
                 <div className="terminal-dot" style={{ background: '#28c840' }}></div>
-                <span className="text-xs text-text-muted ml-2 font-mono">openseclearn@terminal</span>
+                <span className="text-xs text-text-muted ml-2 font-mono">openseclearn@enterprise</span>
               </div>
               <div className="terminal-body text-sm">
                 <p><span className="text-cyber-cyan">$</span> whoami</p>
@@ -56,7 +59,7 @@ export default function Home() {
                 <p className="text-text-secondary">Fundamentals → Networking → Linux → Programming → Web Security → Ethical Hacking</p>
                 <p className="mt-3"><span className="text-cyber-cyan">$</span> ./start-learning.sh</p>
                 <p className="text-cyber-green">✓ Loading 6 stages, 14 lessons, 20+ homework tasks...</p>
-                <p className="text-cyber-green">✓ All resources are free and open-source</p>
+                <p className="text-cyber-green">✓ Enterprise features: RBAC, API docs, audit logs</p>
                 <p className="text-cyber-green">✓ Ready to begin. <span className="animate-pulse-slow">█</span></p>
               </div>
             </div>
@@ -65,16 +68,17 @@ export default function Home() {
       </section>
 
       {/* Stats */}
-      <section className="py-6 border-y border-border-dim" style={{ background: 'rgba(17, 24, 39, 0.5)' }}>
+      <section className="py-8 border-y border-border-dim" style={{ background: 'rgba(17, 24, 39, 0.5)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { value: '6', label: 'Learning Stages' },
-              { value: '14+', label: 'Lessons' },
-              { value: '20+', label: 'Homework Tasks' },
-              { value: '25+', label: 'Curated Resources' },
+              { value: '6', label: 'Learning Stages', icon: '🎯' },
+              { value: '14+', label: 'Lessons', icon: '📖' },
+              { value: '20+', label: 'Homework Tasks', icon: '📝' },
+              { value: '25+', label: 'Curated Resources', icon: '📚' },
             ].map(stat => (
-              <div key={stat.label}>
+              <div key={stat.label} className="py-2">
+                <div className="text-2xl mb-2">{stat.icon}</div>
                 <div className="text-3xl font-black gradient-text">{stat.value}</div>
                 <div className="text-sm text-text-muted mt-1">{stat.label}</div>
               </div>
@@ -83,8 +87,38 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Learning Stages */}
+      {/* Enterprise Features */}
       <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-4" style={{ background: 'rgba(157,0,255,0.1)', color: '#9d00ff', border: '1px solid rgba(157,0,255,0.2)' }}>
+              Enterprise Grade
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-black mb-4">Built for <span className="gradient-text-purple">Serious Learning</span></h2>
+            <p className="text-text-secondary max-w-xl mx-auto">Enterprise-level platform with role-based access, secure authentication, and comprehensive admin controls.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { icon: '🔐', title: 'JWT Authentication', desc: 'Secure token-based authentication with bcrypt password hashing and automatic session management.', color: '#00ff88' },
+              { icon: '🛡️', title: 'Role-Based Access', desc: 'Admin and user roles with middleware-protected routes and granular permissions control.', color: '#9d00ff' },
+              { icon: '📊', title: 'Admin Dashboard', desc: 'Full enterprise admin panel with user management, activity logs, and platform health monitoring.', color: '#00d4ff' },
+              { icon: '📖', title: 'API Documentation', desc: 'Complete Swagger/OpenAPI documentation for all endpoints, right in the admin panel.', color: '#ff6b00' },
+              { icon: '🔒', title: 'Rate Limiting', desc: 'Built-in protection against brute-force attacks with configurable rate limiting per IP.', color: '#ff0055' },
+              { icon: '📋', title: 'Audit Logging', desc: 'Comprehensive activity logging for authentication events, admin actions, and security monitoring.', color: '#ffcc00' },
+            ].map(feature => (
+              <div key={feature.title} className="stat-card group" style={{ '--stat-accent': feature.color } as React.CSSProperties}>
+                <div className="text-3xl mb-4">{feature.icon}</div>
+                <h3 className="text-lg font-bold mb-2 text-text-primary">{feature.title}</h3>
+                <p className="text-sm text-text-secondary leading-relaxed">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Learning Stages */}
+      <section className="py-20" style={{ background: 'rgba(17, 24, 39, 0.3)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-black mb-4">Your Learning <span className="gradient-text">Roadmap</span></h2>
@@ -92,7 +126,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {stages.map((stage, idx) => (
+            {stages.map((stage) => (
               <Link key={stage.id} href={`/stages/${stage.id}`} className="glass-card p-6 group block">
                 <div className="flex items-start gap-4 mb-4">
                   <div className="text-3xl">{stage.icon}</div>
@@ -124,8 +158,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features */}
-      <section className="py-20" style={{ background: 'rgba(17, 24, 39, 0.3)' }}>
+      {/* Platform Features */}
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-black mb-4">Platform <span className="gradient-text-warm">Features</span></h2>
@@ -151,19 +185,21 @@ export default function Home() {
         </div>
       </section>
 
+
       {/* CTA */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="glass-card p-12 relative overflow-hidden">
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <div className="absolute top-0 right-0 w-64 h-64 rounded-full opacity-10" style={{ background: 'radial-gradient(circle, #00ff88, transparent)', filter: 'blur(60px)' }} />
+              <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full opacity-8" style={{ background: 'radial-gradient(circle, #9d00ff, transparent)', filter: 'blur(60px)' }} />
             </div>
             <div className="relative">
               <h2 className="text-3xl sm:text-4xl font-black mb-4">Ready to Start Your <span className="gradient-text">Journey</span>?</h2>
-              <p className="text-text-secondary mb-8 max-w-lg mx-auto">Join thousands of learners securing the digital world with free, open-source education.</p>
+              <p className="text-text-secondary mb-8 max-w-lg mx-auto">Join our cybersecurity learning platform with enterprise-grade features — completely free.</p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link href="/roadmap" className="btn-primary text-base px-8 py-3.5">
-                  View Roadmap →
+                <Link href="/auth/signup" className="btn-primary text-base px-8 py-3.5">
+                  Create Account →
                 </Link>
                 <Link href="/tools" className="btn-secondary text-base px-8 py-3.5">
                   Explore Tools

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { AuthProvider } from "@/context/AuthContext";
 
 export const metadata: Metadata = {
   title: "OpenSecLearn – Free Cybersecurity Learning Platform",
@@ -22,9 +23,11 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </head>
       <body className="min-h-screen antialiased">
-        <Navbar />
-        <main className="pt-16">{children}</main>
-        <Footer />
+        <AuthProvider>
+          <Navbar />
+          <main className="pt-16">{children}</main>
+          <Footer />
+        </AuthProvider>
       </body>
     </html>
   );
